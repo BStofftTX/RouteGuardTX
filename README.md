@@ -9,6 +9,7 @@ RouteGuard helps drivers compare route candidates using a selected operating pro
 - Runs as a responsive cross-platform web app.
 - Captures trip, profile, vehicle, and constraint inputs.
 - Produces deterministic offline/mock route comparisons.
+- Automatically uses a protected provider proxy when `VITE_ROUTEGUARD_PROXY_URL` is configured.
 - Opens the destination in Google Maps or Apple Maps using documented link parameters.
 - Defines a provider-neutral adapter and a Google Routes request mapper.
 - Clearly distinguishes planning preferences from verified road restrictions.
@@ -28,6 +29,11 @@ npm run dev
 
 Open the URL printed by Vite.
 
+For live routing, copy `.env.example` to `.env.local` and point
+`VITE_ROUTEGUARD_PROXY_URL` at a RouteGuard-controlled server proxy. The proxy
+can use openrouteservice's free `driving-hgv` routing profile without exposing
+its API credential to the browser.
+
 ## Proof
 
 ```bash
@@ -38,7 +44,7 @@ npm run build
 ## Structure
 
 - `src/domain` — provider-neutral requests, profiles, constraints, results
-- `src/adapters` — offline adapter, map-launch links, Google Routes mapper
+- `src/adapters` — offline adapter, secure provider-proxy adapter, map-launch links, Google Routes mapper
 - `docs/ARCHITECTURE.md` — production architecture and safety model
 - `docs/API-LIMITATIONS.md` — verified provider constraints
 - `docs/ROADMAP.md` — connected-routing and distribution plan
