@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react';
-import { MockRoutingAdapter } from './adapters/mockAdapter';
+import { createRoutingSession } from './adapters/routingFactory';
 import { appleMapsUrl, googleMapsUrl, launchLimit } from './adapters/mapLaunch';
 import { DEFAULT_CONSTRAINTS, PROFILES, validateRequest, type RouteOption, type RouteProfileId, type RouteRequest, type VehicleConstraints } from './domain/route';
 
-const adapter = new MockRoutingAdapter();
+const routing = createRoutingSession();
 
 const Toggle = ({ label, checked, onChange }: { label: string; checked: boolean; onChange: (v: boolean) => void }) => (
   <label className="toggle"><span>{label}</span><input type="checkbox" checked={checked} onChange={e => onChange(e.target.checked)} /></label>
@@ -25,8 +25,14 @@ export default function App() {
     setErrors(nextErrors);
     if (nextErrors.length) return;
     setLoading(true);
-    setRoutes(await adapter.compute(request));
-    setLoading(false);
+    try {
+      setRoutes(await routing.adapter.compute(request));
+    } catch (error) {
+      setRoutes([]);
+      setErrors([error instanceof Error ? error.message : 'Unable to calculate routes.']);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return <main>
@@ -65,8 +71,8 @@ export default function App() {
       </div>
     </section>
 
-    {routes.length > 0 && <section className="results"><div className="results-head"><p className="eyebrow">Offline prototype</p><h2>Route candidates</h2></div>
-      <div className="cards">{routes.map(route => <article className="route-card" key={route.id}><div className="score">{route.score}<small>fit score</small></div><h3>{route.name}</h3><p>{route.summary}</p><div className="metrics"><strong>{route.distanceMiles} mi</strong><strong>{Math.floor(route.durationMinutes/60)}h {route.durationMinutes%60}m</strong></div>{route.warnings.map(w => <p className={`warning ${w.severity}`} key={w.message}>{w.message}</p>)}</article>)}</div>
+    {routes.length > 0 && <section className="results"><div className="results-head"><p className="eyebrow">{routing.live ? 'Live provider routes' : 'Offline prototype'}</p><h2>Route candidates</h2><p>{routing.notice}</p></div>
+      <div className="cards">{routes.map(route => <article className="route-card" key={route.id}><div className="score">{route.score}<small>fit score</small></div><h3>{route.name}</h3>{route.provider && <small>{route.provider}</small>}<p>{route.summary}</p><div className="metrics"><strong>{route.distanceMiles} mi</strong><strong>{Math.floor(route.durationMinutes/60)}h {route.durationMinutes%60}m</strong></div>{route.warnings.map(w => <p className={`warning ${w.severity}`} key={w.message}>{w.message}</p>)}</article>)}</div>
       <div className="launch"><p>{launchLimit}</p><div><a href={googleMapsUrl(request)} target="_blank">Open destination in Google Maps</a><a href={appleMapsUrl(request)} target="_blank">Open destination in Apple Maps</a></div></div>
     </section>}
 

@@ -34,6 +34,8 @@ export interface RouteOption {
   summary: string;
   warnings: RouteWarning[];
   waypoints?: string[];
+  provider?: string;
+  restrictionCoverage?: Array<'height' | 'weight' | 'length' | 'width' | 'commercial' | 'hazmat'>;
 }
 
 export interface RoutingAdapter {
@@ -41,6 +43,12 @@ export interface RoutingAdapter {
   readonly label: string;
   readonly capability: 'offline-demo' | 'consumer-launch' | 'route-compute';
   compute(request: RouteRequest): Promise<RouteOption[]>;
+}
+
+export interface RoutingSession {
+  adapter: RoutingAdapter;
+  live: boolean;
+  notice: string;
 }
 
 export const DEFAULT_CONSTRAINTS: VehicleConstraints = {
