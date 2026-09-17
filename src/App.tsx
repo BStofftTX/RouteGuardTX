@@ -37,7 +37,7 @@ export default function App() {
 
   return <main>
     <header className="hero">
-      <div className="brand"><span className="brand-mark">RG</span><div><strong>RouteGuard</strong><small>by MacroStofft</small></div></div>
+      <div className="brand"><span className="brand-mark">RG</span><div><strong>RouteGuardTX</strong><small>by MacroStofft</small></div></div>
       <div className="hero-copy"><p className="eyebrow">Choose the road that fits the vehicle</p><h1>Plan with purpose.<br/><em>Drive with judgment.</em></h1><p>Compare routes against vehicle needs, road preferences, and operational risk before opening your navigation app.</p></div>
     </header>
 
@@ -76,7 +76,7 @@ export default function App() {
       <div className="launch"><p>{launchLimit}</p><div><a href={googleMapsUrl(request)} target="_blank">Open destination in Google Maps</a><a href={appleMapsUrl(request)} target="_blank">Open destination in Apple Maps</a></div></div>
     </section>}
 
-    <section className="safety"><strong>Important safety notice</strong><p>RouteGuard is a planning aid, not a guarantee of road legality or vehicle clearance. Posted signs, permits, official restrictions, dispatch instructions, and driver judgment always control.</p></section>
+    <section className="safety"><strong>Important safety notice</strong><p>RouteGuardTX is a planning aid, not a guarantee of road legality or vehicle clearance. Posted signs, permits, official restrictions, dispatch instructions, and driver judgment always control.</p></section>
     <footer>© 2026 MacroStofft · Prototype software · No credentials included</footer>
   </main>;
 }

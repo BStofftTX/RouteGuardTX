@@ -19,7 +19,7 @@ export class MockRoutingAdapter implements RoutingAdapter {
         distanceMiles: base + (heavy ? 9 : scenic ? 16 : 0),
         durationMinutes: Math.round((base + (heavy ? 9 : scenic ? 16 : 0)) * (scenic ? 1.25 : 1.05)),
         score: 92,
-        provider: 'RouteGuard demo',
+        provider: 'RouteGuardTX demo',
         summary: heavy ? 'Prefers major roads and maneuverable approaches.' : scenic ? 'Trades some time for a profile-matched drive.' : 'Prioritizes travel time.',
         warnings: heavy ? [{ severity: 'caution', message: 'Demo data cannot verify bridge, clearance, or legal truck restrictions.' }] : [],
       },
@@ -29,7 +29,7 @@ export class MockRoutingAdapter implements RoutingAdapter {
         distanceMiles: base + 5,
         durationMinutes: Math.round((base + 5) * 1.18),
         score: 76,
-        provider: 'RouteGuard demo',
+        provider: 'RouteGuardTX demo',
         summary: 'A comparison route with a different distance/time tradeoff.',
         warnings: request.constraints.avoidSharpTurns
           ? [{ severity: 'info', message: 'Sharp-turn preference recorded; no verified turn geometry is available offline.' }]

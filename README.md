@@ -1,8 +1,8 @@
-# RouteGuard
+# RouteGuardTX
 
 **A route-planning companion created and owned by MacroStofft.**
 
-RouteGuard helps drivers compare route candidates using a selected operating profile: fastest, heavy load/truck, scenic, motorcycle, or towing/RV. It captures vehicle dimensions and preferences such as avoiding sharp turns, low clearances, weight-restricted bridges, poor turnaround access, highways, and tolls.
+RouteGuardTX helps drivers compare route candidates using a selected operating profile: fastest, heavy load/truck, scenic, motorcycle, or towing/RV. It captures vehicle dimensions and preferences such as avoiding sharp turns, low clearances, weight-restricted bridges, poor turnaround access, highways, and tolls.
 
 ## What this prototype does
 
@@ -16,7 +16,7 @@ RouteGuard helps drivers compare route candidates using a selected operating pro
 
 ## What it does not claim
 
-RouteGuard is not currently a turn-by-turn navigation engine and does not claim that custom constraints transfer into consumer Google Maps or Apple Maps. The offline adapter does not validate real clearances or legal restrictions.
+RouteGuardTX is not currently a turn-by-turn navigation engine and does not claim that custom constraints transfer into consumer Google Maps or Apple Maps. The offline adapter does not validate real clearances or legal restrictions.
 
 Google now documents a limited-access Large Vehicle Routing service, but it is provisioned to selected customers and remains best-effort. Apple’s public MapKit/Maps-link surface reviewed for this prototype does not expose truck dimension or clearance controls. See [API limitations](docs/API-LIMITATIONS.md).
 
@@ -30,7 +30,7 @@ npm run dev
 Open the URL printed by Vite.
 
 For live routing, copy `.env.example` to `.env.local` and point
-`VITE_ROUTEGUARD_PROXY_URL` at a RouteGuard-controlled server proxy. The proxy
+`VITE_ROUTEGUARD_PROXY_URL` at a RouteGuardTX-controlled server proxy. The proxy
 can use openrouteservice's free `driving-hgv` routing profile without exposing
 its API credential to the browser.
 
@@ -60,4 +60,4 @@ This software is a planning aid. It cannot guarantee clearance, legal weight, ro
 
 ## Ownership
 
-Copyright © 2026 MacroStofft. RouteGuard is a MacroStofft product concept and software prototype.
+Copyright © 2026 MacroStofft. RouteGuardTX is a MacroStofft product concept and software prototype. All rights reserved. See [LICENSE.md](LICENSE.md).

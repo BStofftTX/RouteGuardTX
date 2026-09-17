@@ -9,7 +9,7 @@
 - Provider-neutral domain model and tests
 
 ## Phase 2 — connected planning
-- Secure RouteGuard API proxy
+- Secure RouteGuardTX API proxy
 - Geocoding and route normalization
 - Google Routes API conventional driving integration
 - Apply for Google Large Vehicle Routing provisioning

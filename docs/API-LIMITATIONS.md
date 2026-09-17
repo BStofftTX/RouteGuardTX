@@ -4,7 +4,7 @@ Verified against official documentation on 2026-09-11.
 
 ## Google
 
-- Maps URLs can open Google Maps with origin, destination, waypoints, and documented travel modes. They do not carry RouteGuard's custom height, weight, turnaround, or sharp-turn controls.
+- Maps URLs can open Google Maps with origin, destination, waypoints, and documented travel modes. They do not carry RouteGuardTX's custom height, weight, turnaround, or sharp-turn controls.
 - Google Routes API documents `DRIVE`, `TWO_WHEELER`, and `TRUCK` modes and route modifiers.
 - Large Vehicle Routing accepts dimensions, actual weight, trailer information, and supported hazardous-goods classes, but is available only to a limited set of provisioned customers.
 - Google describes large-vehicle routing as best-effort, may flag `routeRestrictionsPartiallyIgnored`, and explicitly warns that drivers must not rely on it as the sole source of safety or legality.
@@ -29,4 +29,4 @@ Official sources:
 
 ## Constraint data
 
-Clearance, legal weight, seasonal restriction, private-road, construction, and turnaround data are incomplete and change over time. A production RouteGuard service needs licensed/current datasets, provider-specific coverage analysis, user reporting with verification, and explicit unresolved-risk warnings.
+Clearance, legal weight, seasonal restriction, private-road, construction, and turnaround data are incomplete and change over time. A production RouteGuardTX service needs licensed/current datasets, provider-specific coverage analysis, user reporting with verification, and explicit unresolved-risk warnings.
