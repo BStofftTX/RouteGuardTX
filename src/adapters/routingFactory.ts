@@ -9,7 +9,7 @@ export function createRoutingSession(env: Record<string, unknown> = import.meta.
   if (endpoint) return {
     adapter: new ProviderProxyAdapter(endpoint),
     live: true,
-    notice: 'Live provider enabled through the secure RouteGuard proxy.',
+    notice: 'Live provider enabled through the secure RouteGuardTX proxy.',
   };
   return {
     adapter: new MockRoutingAdapter(),

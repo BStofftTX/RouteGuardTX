@@ -17,4 +17,4 @@ export function appleMapsUrl(request: RouteRequest): string {
 }
 
 export const launchLimit =
-  'Opening a consumer map transfers only the supported origin, destination, and travel mode. RouteGuard safety constraints are not transferred.';
+  'Opening a consumer map transfers only the supported origin, destination, and travel mode. RouteGuardTX safety constraints are not transferred.';
