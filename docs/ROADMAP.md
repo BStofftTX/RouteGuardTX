@@ -1,6 +1,7 @@
 # Roadmap
 
 ## Phase 1 — prototype (current)
+
 - Cross-platform responsive UI
 - Five route profiles
 - Vehicle dimensions and constraint preferences
@@ -9,6 +10,7 @@
 - Provider-neutral domain model and tests
 
 ## Phase 2 — connected planning
+
 - Secure RouteGuardTX API proxy
 - Geocoding and route normalization
 - Google Routes API conventional driving integration
@@ -17,6 +19,7 @@
 - Route comparison map and step-level advisories
 
 ## Phase 3 — operational safety
+
 - Licensed clearance, bridge, and commercial restriction sources
 - Saved vehicle profiles and fleet policies
 - Route audit trail and dispatcher approval
@@ -24,6 +27,7 @@
 - Offline trip packet and compliance export
 
 ## Phase 4 — distribution
+
 - iOS and Android wrappers/native clients
 - Share extensions for destinations from other apps
 - Fleet/driver portal and subscriptions

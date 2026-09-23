@@ -11,6 +11,7 @@ Verified against official documentation on 2026-09-11.
 - Two-wheeler availability varies by geography.
 
 Official sources:
+
 - https://developers.google.com/maps/documentation/urls/get-started
 - https://developers.google.com/maps/documentation/routes/lvr
 - https://developers.google.com/maps/documentation/routes/reference/rest/v2/RouteModifiers
@@ -23,6 +24,7 @@ Official sources:
 - The official public documentation reviewed does not expose custom truck dimensions, low-clearance, bridge-weight, sharp-turn, or turnaround controls for consumer Apple Maps route launches.
 
 Official sources:
+
 - https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
 - https://developer.apple.com/documentation/mapkit/mkdirections
 - https://developer.apple.com/documentation/mapkit/mkdirectionstransporttype
