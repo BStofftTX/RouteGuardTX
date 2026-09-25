@@ -1,0 +1,31 @@
+name: Feature request
+description: Propose a focused RouteGuardTX improvement
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: User need
+      description: Which driver, dispatcher, or trip-planning problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest useful implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation
+      description: How should correctness, accessibility, and provider behavior be tested?
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety and data considerations
+      description: Note credential, trip-history, restriction-data, legal, or driver-safety implications.

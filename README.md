@@ -1,8 +1,43 @@
 # RouteGuardTX
 
+[![CI](https://github.com/BStofftTX/RouteGuardTX/actions/workflows/ci.yml/badge.svg)](https://github.com/BStofftTX/RouteGuardTX/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/BStofftTX/RouteGuardTX/actions/workflows/codeql.yml/badge.svg)](https://github.com/BStofftTX/RouteGuardTX/actions/workflows/codeql.yml)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Status: Planning MVP](https://img.shields.io/badge/status-planning%20MVP-blue)](#project-status)
+
 **A route-planning companion created and owned by MacroStofft.**
 
 RouteGuardTX helps drivers compare route candidates using a selected operating profile: fastest, heavy load/truck, scenic, motorcycle, or towing/RV. It captures vehicle dimensions and preferences such as avoiding sharp turns, low clearances, weight-restricted bridges, poor turnaround access, highways, and tolls.
+
+## Project status
+
+RouteGuardTX is a working planning MVP with deterministic offline route comparisons and a provider-neutral integration layer. It demonstrates the product experience and safety model without representing mock results as verified road restrictions or turn-by-turn navigation.
+
+## Engineering highlights
+
+- Responsive React and TypeScript interface
+- Provider-neutral routing domain and adapter architecture
+- Protected proxy integration that keeps provider credentials out of the browser
+- Deterministic offline adapter for repeatable development and testing
+- Google Maps and Apple Maps handoff using documented URL parameters
+- Strict separation between planning preferences and verified restrictions
+- Unit, production-build, lint, formatting, accessibility, dependency, and CodeQL checks
+
+## Architecture at a glance
+
+```mermaid
+flowchart LR
+    A[Trip + vehicle constraints] --> B[RouteGuardTX domain model]
+    B --> C{Routing adapter}
+    C --> D[Deterministic offline demo]
+    C --> E[Protected provider proxy]
+    E --> F[Routing provider]
+    D --> G[Comparable route candidates]
+    F --> G
+    G --> H[Safety advisories + map handoff]
+```
+
+The browser never receives provider credentials. Connected routing goes through a RouteGuardTX-controlled proxy that normalizes requests and responses. See [Architecture](docs/ARCHITECTURE.md) for the production topology and safety model.
 
 ## What this prototype does
 
@@ -39,7 +74,12 @@ its API credential to the browser.
 ```bash
 npm test
 npm run build
+npm run lint
+npm run format:check
+npm run test:e2e
 ```
+
+CI runs unit tests and production builds on Node.js 22, plus a Chromium accessibility check using Playwright and axe-core. CodeQL provides additional static analysis.
 
 ## Structure
 
@@ -48,11 +88,12 @@ npm run build
 - `docs/ARCHITECTURE.md` — production architecture and safety model
 - `docs/API-LIMITATIONS.md` — verified provider constraints
 - `docs/ROADMAP.md` — connected-routing and distribution plan
-- `tests` — model, adapter, and launch-link tests
+- `tests` — model, adapter, launch-link, and accessibility tests
+- `.github` — CI, CodeQL, dependency updates, and contribution templates
 
 ## Security
 
-No provider credentials belong in this repository. Production API calls must go through a protected server-side proxy.
+No provider credentials belong in this repository. Production API calls must go through a protected server-side proxy. Report vulnerabilities privately using the process in [SECURITY.md](SECURITY.md).
 
 ## Safety
 
@@ -61,3 +102,5 @@ This software is a planning aid. It cannot guarantee clearance, legal weight, ro
 ## Ownership
 
 Copyright © 2026 MacroStofft. RouteGuardTX is a MacroStofft product concept and software prototype. All rights reserved. See [LICENSE.md](LICENSE.md).
+
+External contribution expectations are documented in [CONTRIBUTING.md](CONTRIBUTING.md).
