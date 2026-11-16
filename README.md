@@ -88,6 +88,7 @@ CI runs unit tests and production builds on Node.js 22, plus a Chromium accessib
 - `docs/ARCHITECTURE.md` — production architecture and safety model
 - `docs/API-LIMITATIONS.md` — verified provider constraints
 - `docs/ROADMAP.md` — connected-routing and distribution plan
+- `docs/RELEASE-READINESS.md` — demonstrated behavior, verification, and release limits
 - `tests` — model, adapter, launch-link, and accessibility tests
 - `.github` — CI, CodeQL, dependency updates, and contribution templates
 
